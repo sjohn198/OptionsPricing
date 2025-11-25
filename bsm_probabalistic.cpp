@@ -9,7 +9,7 @@ float getNormalProb(float value) {
 
 int main(int argc, char *argv[]) {
     if (argc != 6) {
-        std::cout << "Insufficient arguments. \nUsage: ./put_call_parity [strike price] [time to maturity] [risk-free interest rate] [initial stock price] [volatility]" << std::endl;
+        std::cout << "Insufficient arguments. \nUsage: ./bsm_probabalistic [strike price] [time to maturity] [risk-free interest rate] [initial stock price] [volatility]" << std::endl;
         exit(1);
     }
     float strike_price = std::stof(argv[1]);

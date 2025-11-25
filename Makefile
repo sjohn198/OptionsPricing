@@ -1,17 +1,19 @@
 C++C = clang++
 CFLAGS = -Wall -g
 
-put_call_parity: put_call_parity.o util.o
-	$(C++C) ${CFLAGS} -o put_call_parity put_call_parity.o util.o
+all: bin/bsm_probabalistic bin/put_call_parity
 
-put_call_parity.o: put_call_parity.cpp
-	$(C++C) $(CFLAGS) -c put_call_parity.cpp
+bin/put_call_parity: obj/put_call_parity.o obj/util.o
+	$(C++C) ${CFLAGS} -o $@ obj/put_call_parity.o obj/util.o
 
-bsm_probabalistic: bsm_probabalistic.o util.o
-	$(C++C) ${CFLAGS} -o bsm_probabalistic bsm_probabalistic.o util.o
+obj/put_call_parity.o: put_call_parity.cpp
+	$(C++C) $(CFLAGS) -o $@ -c put_call_parity.cpp
 
-bsm_probabalistic.o: bsm_probabalistic.cpp
-	$(C++C) $(CFLAGS) -c bsm_probabalistic.cpp
+bin/bsm_probabalistic: obj/bsm_probabalistic.o obj/util.o
+	$(C++C) ${CFLAGS} -o $@ obj/bsm_probabalistic.o obj/util.o
 
-util.o: util.cpp
-	$(C++C) $(CFLAGS) -c util.cpp
+obj/bsm_probabalistic.o: bsm_probabalistic.cpp
+	$(C++C) $(CFLAGS) -o $@ -c bsm_probabalistic.cpp
+
+obj/util.o: util.cpp
+	$(C++C) $(CFLAGS) -o $@ -c util.cpp
