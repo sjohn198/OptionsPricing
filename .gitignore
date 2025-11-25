@@ -2,4 +2,4 @@ obj/*
 !obj/.gitkeep
 
 bin/*
-!obj/.gitkeep
+!bin/.gitkeep
